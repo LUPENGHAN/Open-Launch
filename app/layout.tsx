@@ -60,15 +60,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <PlausibleProvider
-          domain="open-launch.com"
-          customDomain="https://plausible.dailypings.com"
-          selfHosted={true}
-          trackOutboundLinks={true}
-          scriptProps={{
-            src: "https://plausible.dailypings.com/js/script.js",
-          }}
-          enabled={process.env.NODE_ENV === "production"}
+          domain="localhost"
+          customDomain="http://192.168.50.74:8066"
+          selfHosted
+          trackOutboundLinks
+          enabled={(process.env.NEXT_PUBLIC_ENABLE_PLAUSIBLE ?? "true") === "true"}
         />
+        <title></title>
       </head>
       <body
         className={`font-sans antialiased ${fontSans.variable} ${fontHeading.variable} sm:overflow-y-scroll`}
